@@ -1,0 +1,26 @@
+div {
+    display: inline-block;
+    border: 1px #000 solid;
+    width: 100px;
+    height: 100px;
+}
+
+.right {
+    background-color: blue;
+    float: right;
+}
+
+.left {
+    background-color: red;
+    float: left;
+}
+
+.clear {
+    clear: both;
+}
+
+.img {
+    height: 100%;
+    -webkit-filter: sepia(50%) brightness(0.5);
+    filter: sepia(50%) brightness(0.5);
+}
