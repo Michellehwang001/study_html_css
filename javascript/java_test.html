@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function getNumber() {
+            let num = Number(prompt("숫자를 입력해 주세요."));
+
+            if(num == '' || num== null) {
+                getNumber();
+            }
+            else {
+                if(typeof num == "number" && !isNaN(num)) {
+                    if( num > 0 && num <= 100) {
+                        for(let i = 1 ; i <= num; i++) {
+                            console.log(i);
+                        }
+                        alert("완료되었습니다.");
+                    }
+                    else {
+                        alert("1~100사이의 숫자를 입력해 주세요.");
+                        getNumber();
+                    }
+                }
+                else {
+                    alert("숫자를 입력해 주세요!");
+                    getNumber();
+                }
+            }
+        }
+
+        getNumber();
+
+        console.log(typeof(1));
+
+        //getNumber();
+
+        // for(let i = 1 ; i <= 100; i++) {
+        //     console.log(i);
+        // }
+    </script>
+</body>
+</html>
