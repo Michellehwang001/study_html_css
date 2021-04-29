@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <style>
+            .default {
+                width: 100px;
+                height: 50px;
+                background-color: gray;
+                color: white;
+            }
+            .back-white {
+                width: 100px;
+                height: 50px;
+                background-color: white;
+                color: blue;
+            }
+        </style>
+        <script>
+            function gray() {
+                document.getElementById("html").className = 'default';
+                document.getElementById("css").className = 'default';
+                document.getElementById("javascript").className = 'default';
+            }
+
+            function changeColor(id) {
+                gray();
+                document.getElementById(id).className = 'back-white';
+            }
+
+            // function changeColor(id) { 
+            //     let selected = document.getElementById(id);
+            //     let html = document.getElementById("html");
+            //     let css = document.getElementById("css");
+            //     let javascript = document.getElementById("javascript");
+
+            //     //document.getElementsByClassName("default").map(item => changeOther(item));
+
+            //     selected.className = "back-white";
+            //     if(id == 'html') {
+            //         css.className = "default"
+            //         javascript.className = "default"
+            //     } else if(id == 'css') {
+            //         html.className = "default"
+            //         javascript.className = "default"
+            //     } else if(id == 'javascript') {
+            //         css.className = "default"
+            //         html.className = "default"
+            //     }
+            // }
+        </script>
+    </head>
+    <body onload="gray()">
+        <div style="text-align: center; vertical-align: middle;">
+            <button id="html" onclick="changeColor(this.id);">html</button>
+            <button id="css" onclick="changeColor(this.id);">css</button>
+            <button id="javascript" onclick="changeColor(this.id);">javascript</button>
+        </div>
+    </body>
+</html>
