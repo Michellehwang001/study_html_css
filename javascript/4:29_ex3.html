@@ -13,6 +13,12 @@
                 background-color: white;
                 color: blue;
             }
+            .back-red {
+                width: 100px;
+                height: 50px;
+                background-color: red;
+                color: black;
+            }
         </style>
         <script>
             function gray() {
@@ -24,6 +30,11 @@
             function changeColor(id) {
                 gray();
                 document.getElementById(id).className = 'back-white';
+            }
+
+            function clickColor(id) {
+                gray();
+                document.getElementById(id).className = "back-red";
             }
 
             // function changeColor(id) { 
@@ -50,9 +61,9 @@
     </head>
     <body onload="gray()">
         <div style="text-align: center; vertical-align: middle;">
-            <button id="html" onclick="changeColor(this.id);">html</button>
-            <button id="css" onclick="changeColor(this.id);">css</button>
-            <button id="javascript" onclick="changeColor(this.id);">javascript</button>
+            <button id="html" onclick="clickColor(this.id);" onmouseover="changeColor(this.id)">html</button>
+            <button id="css" onclick="clickColor(this.id);" onmouseover="changeColor(this.id)">css</button>
+            <button id="javascript" onclick="clickColor(this.id);" onmouseover="changeColor(this.id)">javascript</button>
         </div>
     </body>
 </html>
