@@ -17,42 +17,24 @@
                 background-color: white;
                 color: blue;
             }
-            .red {
-                width: 100px;
-                height: 50px;
-                background-color: red;
-                color: black;
-            }
         </style>
         <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
         <script>
-            function gray() {
-                document.getElementById("html").className = 'default';
-                document.getElementById("css").className = 'default';
-                document.getElementById("javascript").className = 'default';
-            }
-
             $( document ).ready(function() {
-                $("#html").on("click", function() {
-                    gray();
-                    $("#html").attr("class", "white");
-                });
-                $("#css").on("click", function() {
-                    gray();
-                    $("#css").attr("class", "white");
-                });
-                $("#javascript").on("click", function() {
-                    gray();
-                    $("#javascript").attr("class", "white");
+                $("button").attr("class", "default");
+
+                $("button").on("click", function() {
+                    $("button").attr("class", "default");
+                    $(this).attr("class", "white");
                 });
             });
         </script>
     </head>
     <body>
         <div>
-            <button class="default" id="html">html</button>
-            <button class="default" id="css">css</button>
-            <button class="default" id="javascript">javascript</button>
+            <button id="html">html</button>
+            <button id="css">css</button>
+            <button id="javascript">javascript</button>
         </div>
     </body>
 </html>
