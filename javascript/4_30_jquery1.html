@@ -1,0 +1,73 @@
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script>
+        /* 페이지 로딩시 자동으로 로딩 */
+        // $(function() {
+        //     $("#btn").on("click", function() {
+        //         console.log("Click");
+        //     });
+        // });
+
+        $( document ).ready(function() {
+            // html, text 비교
+            $("#btn1").on("click", function() {
+                $("#text").html("<b>inner div</b>");
+            });
+
+            $("#btn2").on("click", function() {
+                $("#text").text("<b>inner div</b>");
+            });
+
+            let codes = "<h1>Hi~ Everybody~</h1>";
+
+            // append, prepend 실습
+            $("#btn3").on("click", function() {
+                $("#text").append(codes);
+            });
+            $("#btn4").on("click", function() {
+                $("#text").prepend(codes);
+            });
+
+
+            $("#btn5").on("click", function() {
+                let url = prompt("주소를 입력해 주세요.");
+                $("#link").attr("href", url);
+            });
+            $("#btn6").on("click", function() {
+                let attr_val = $("#link").attr("href");
+                $("#text").text(attr_val);
+            });
+
+            $("#btn7").on("click", function() {
+                $("body").css("background-color", "yellow");
+            });
+            $("#btn8").on("click", function() {
+                $("body").css("background-color", "green");
+            });
+        });
+
+    </script>
+
+</head>
+<body>
+    <button id="btn1">html 클릭!</button>
+    <button id="btn2">text 클릭!</button>
+    <hr>
+
+    <button id="btn3">append</button>
+    <button id="btn4">prepend</button>
+    <hr>
+
+    <button id="btn5">attr 변경</button>
+    <button id="btn6">attr 확인</button>
+    <hr>
+
+    <button id="btn7">백그라운드컬러(yello)</button>
+    <button id="btn8">백그라운드컬러(green)</button>
+    <hr>
+
+    <div id="text">now</div>
+    <a href="" id="link">link</a>
+</body>
+</html>

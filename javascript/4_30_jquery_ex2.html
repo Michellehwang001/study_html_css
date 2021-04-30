@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <style>
+            
+            #total {
+                display: inline-block;
+                width: 300px;
+                height: 400px;
+                background-color: blanchedalmond;
+                padding: 10px;
+            }
+
+            #head {
+                display: inline-block;
+                width: 310px;
+                height: 40px;
+                background-color: cadetblue;
+                padding-top: 20px;
+                padding-left: 10px;
+                position: absolute;
+                top: 10px;
+                left: 8px;
+            }
+
+            .article {
+                position: relative;
+                top: 50px;
+                display: inline-block;
+                width: 290px;
+                height: 80px;
+                margin-top: 10px;
+                background-color: cornsilk;
+            }
+
+            #btn {
+                clear: left;
+            }
+        </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script>
+        $( document ).ready(function() {
+            $("#btn").on("click", function() {
+                let text = prompt("입력해주세요.");
+                $(".body").append("<div class='article'>"+ text +"</div>");
+            });
+        });
+    </script>
+    </head>
+    <body>
+        <div id="total">
+            <div id="head">
+                기사등록하기
+            </div>
+            <div class="body">
+                <div class="article">박지성</div>
+            </div>
+        </div>
+        <button id="btn">기사입력하기</button>
+    </body>
+</html>

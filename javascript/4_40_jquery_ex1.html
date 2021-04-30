@@ -1,0 +1,45 @@
+<html>
+    <head>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script>
+        function input_data() {
+            let input_text = prompt("택스트값을 입력해 주세요.");
+            //let result;
+
+            if(input_text == '') {
+                input_data();
+                return 0;
+            }
+            else {
+                $("#text").text(input_text);
+                return 0;
+            }
+
+        }
+
+        $( document ).ready(function() {
+            input_data();
+
+            $("#btn_red").on("click", function() {
+                alert("빨간색으로 변경됩니다.");
+                $("#text").css("color", "red");
+            });
+            $("#btn_blue").on("click", function() {
+                alert("파랑색으로 변경됩니다.");
+                $("#text").css("color", "blue");
+            });
+            $("#btn_green").on("click", function() {
+                alert("초록색으로 변경됩니다.");
+                $("#text").css("color", "green");
+            });
+            
+        });
+    </script>
+    </head>
+    <body>
+        <div id="text"> text </div>
+        <button id="btn_red">빨강</button>
+        <button id="btn_blue">파랑</button>
+        <button id="btn_green">초록</button>
+    </body>
