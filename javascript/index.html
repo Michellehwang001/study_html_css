@@ -22,8 +22,6 @@
     var currentScroll = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
     new daum.Postcode({
       oncomplete: function (data) {
-        // messageHandler.postMessage("click");
-        //messageHandler.postMessage(addr);
         // 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
 
 
@@ -39,8 +37,9 @@
           addr = data.jibunAddress;
         }
 
-        alert(data.zonecode);
-        alert(addr);
+        // alert(data.zonecode);
+        // alert(addr);
+        messageHandler.postMessage(addr);
 
         // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
         if (data.userSelectedType === 'R') {
