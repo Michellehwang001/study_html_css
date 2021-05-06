@@ -3,8 +3,18 @@
         <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
         <script>
             $(document).keydown(function(e) {
+                var obj = $("#item").offset();
+                console.log("left: " + obj.left + "px, top: " + obj.top + "px");
+
+
                 if(e.key == "ArrowLeft") {
-                    $("#item").animate({left: "-=50px"}, 200);
+                    if(obj.left < 50) {
+                        $("#item").left = 0;
+                        //$("#item").animate({left: "0px"}, 200);
+                    }
+                    else {
+                        $("#item").animate({left: "-=50px"}, 200);
+                    }
                 }
                 if(e.key == "ArrowRight") {
                     $("#item").animate({left: "+=50px"}, 200);
