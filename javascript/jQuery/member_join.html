@@ -1,0 +1,88 @@
+
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <script>
+
+        $(function () {
+            let regExp = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
+
+            $("#submit").click(function() {
+                if(regExp.test($("#id").val())==false){
+                    alert("email 형식이 맞지 않습니다. ");
+                    $("#id").val("").focus();
+                } else if($("#id").val().length < 5) {
+                    alert("id는 5자 이상입니다.");
+                } else if($("#pw").val() == "") {
+                    alert("비밀번호를 입력해 주세요.");
+                    $("#pw").focus();
+                } else if($("#pw").val().length < 5) {
+                    alert("비밀번호는 5자 이상입니다.");
+                } else if($("input:radio[name=gender]:checked").length == 0) {
+                    alert("성별을 선택해 주세요.");
+                } else if($("#job").val() == "") {
+                    alert("직업을 선택해 주세요.");
+                } else if($("input:checkbox[name=hobby]:checked").length < 3) {
+                    alert("취미는 3개 이상 선택해 주세요.");
+                } else {
+                    alert("회원가입 되셨습니다. ");
+                }
+                return true;
+            });
+        });
+        </script>
+    </head>
+    <body>
+        <div>
+            <form name="frm_join" method="POST" action="./form01.html">
+            <table>
+                <tr>
+                    <td>아이디(E-mail)</td>
+                    <td><input type="text" name="id" id="id" value="222@naver.com"></td>
+                </tr>
+                <tr>
+                    <td>비밀번호</td>
+                    <td><input type="text" name="pw" id="pw"></td>
+                </tr>
+                <tr>
+                    <td>성  별</td>
+                    <td>
+                        <input type="radio" name="gender" value="male"> 남자
+                        <input type="radio" name="gender" value="female"> 여자
+                    </td>
+                </tr>
+                <tr>
+                    <td>직  업</td>
+                    <td>
+                        <select name="job" id="job">
+                            <option value="">==선택해주세요==</option>
+                            <option value="gamer">프로게이머</option>
+                            <option value="programmer">프로그래머</option>
+                            <option value="engineer">엔지니어</option>
+                            <option value="housekeeper">주부</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>취  미</td>
+                    <td>
+                        <input type="checkbox" name="hobby" value="0"> 개발 
+                        <input type="checkbox" name="hobby" value="1"> 게임 
+                        <input type="checkbox" name="hobby" value="2"> 낚시 
+                        <input type="checkbox" name="hobby" value="3"> 운동 
+                        <input type="checkbox" name="hobby" value="4"> 독서 
+                        <input type="checkbox" name="hobby" value="5"> 음악감상 
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="reset" value="취소">
+                        <input type="button" value="회원가입" id="submit"> 
+                    </td>
+                </tr>
+            </table>
+            </form>
+        </div>
+    </body>
+</html>

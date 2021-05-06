@@ -1,0 +1,91 @@
+
+<html>
+    <head>
+        <style>
+        table {
+            table-layout: fixed;
+            width: 60%;
+            border-collapse: collapse;
+            border: 1px solid gray;
+        }
+        th, td {
+          border: 1px solid #444444;
+        }
+        </style>
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <script>
+
+        $(function () {
+            let checked = false;
+            $("#confirm").click(function() {
+                alert('11');
+            });
+            $("#checkAll").click(function() {
+                if($(this).prop("checked") == true) {
+                    $("input[name=checkBoard]:checkbox").prop("checked", true);
+                }
+                else {
+                    $("input[name=checkBoard]:checkbox").prop("checked", false);
+                }
+            });
+        });
+        </script>
+    </head>
+    <body>
+        <div>
+            <form name="frm_join" method="POST" action="./form01.html">
+            <table>
+                <tr>
+                    <td>
+                        <input type="checkbox" id="checkAll"> 확인
+                    </td>
+                    <td>
+                        제목
+                    </td>
+                    <td>글쓴시간</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" name="checkBoard">
+                    </td>
+                    <td>1111</td>
+                    <td>11:11:00</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" name="checkBoard">
+                    </td>
+                    <td>1111</td>
+                    <td>11:11:00</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" name="checkBoard">
+                    </td>
+                    <td>1111</td>
+                    <td>11:11:00</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" name="checkBoard">
+                    </td>
+                    <td>1111</td>
+                    <td>11:11:00</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" name="checkBoard">
+                    </td>
+                    <td>1111</td>
+                    <td>11:11:00</td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <input type="button" value="로그 보기" id="confirm">
+                    </td>
+                </tr>
+            </table>
+            </form>
+        </div>
+    </body>
+</html>
