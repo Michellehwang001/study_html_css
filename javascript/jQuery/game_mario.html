@@ -1,0 +1,146 @@
+
+<html>
+    <head>
+        <style>
+            img{
+                width: 80px;
+                height: 80px;
+            }
+
+            #bg {
+                position: relative;
+                display: inline-block;
+                width: 100%;
+                height: 90%;
+                border: 1px solid #000;
+            }
+
+            .ch {
+                position: absolute;
+                display: inline-block;
+                width: 80px;
+                height: 80px;
+            }
+
+            #mario {
+                display: inline-block;
+                position: absolute;
+                width: 100px;
+                height: 100px;
+            }
+
+            #killer {
+                display: inline-block;
+                position: absolute;
+            }
+
+        </style>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <script>
+            var jumping = 0;
+            // 살아있다. 
+            var alive = 0;
+            var misiling = 0;
+
+            var timer = setInterval(function() {
+                let mario_bottom = parseInt($("#mario").css("bottom"), 10);
+                let gb_left = parseInt($("#gb").css("left"), 10);
+                let killer_left = parseInt($("#killer").css("left"), 10);
+
+                $("#mario_gps").text($("#mario").css("left")+"/"+$("#mario").css("bottom"));
+                $("#gb_gps").text($("#gb").css("left")+"/"+$("#mario").css("bottom"));
+
+                if((gb_left - killer_left) < 50 && misiling == 1) {
+                    $("#killer").stop(); 
+                    $("#killer").hide();
+                    misiling = 0;
+
+                    $("#gb").stop(); 
+                    $("#gb").hide(); 
+                    gb_default();
+                }
+
+                if(mario_bottom < 50 && gb_left < 100 && gb_left > 50 && alive == 0) {
+                    $("#mario").hide();
+                    alive = 1;
+                }
+            }, 100);
+
+            function test() {
+                console.log(Math.ceil(Math.random()*1000));
+            }
+            //setTimeout(test(), 2000);
+            //setInterval(test, 2000);
+
+            function killer_default() {
+                if (misiling == 0 && alive == 0) {
+                    misiling = 1;
+                    $("#killer").show();
+                    $("#killer").css({left: "100px", bottom: "10px"});
+                    $("#killer").animate({
+                        left: "100%"
+                    }, 1000, function () {
+                        misiling = 0;
+                    });
+                }
+            }
+
+            function mario_default() {
+                $("#mario").show();
+                $("#mario").css({left:"0px", bottom:"10px"});
+            }
+
+            function gb_default() {
+                let moveSpeed = Math.round(Math.random() * 10000);
+                if(moveSpeed < 4000) {
+                    moveSpeed = 4000;
+                }
+                console.log(moveSpeed);
+
+                $("#gb").show();
+                $("#gb").css({right:"0px", bottom:"10px"});
+                $("#gb").animate({right: "100%"}, moveSpeed, function() {
+                    gb_default()
+                });
+            }
+
+            $(function() {
+                $("body").keydown(function(event) {
+                    console.log(event);
+                    // space bar
+                    if(event.keyCode == 32) {
+                        if(jumping == 0) {
+                            jumping = 1;
+                            $("#mario").animate({bottom: "+=230px"}, 500);
+                            $("#mario").animate({bottom: "0px"}, 500, function() {
+                                jumping = 0;
+                            });
+                        }
+                    } 
+                    // Enter key
+                    if(event.keyCode == 13) {
+                        killer_default();
+                    }
+                });
+                $("#mario").hide();
+                $("#killer").hide();
+                $("#gb").hide();
+
+                mario_default();
+                gb_default();
+            });
+
+        </script>
+
+    </head>
+    <body>
+        <div id="bg">
+                <div class="ch" id="mario"><img src="mario/man.gif"></div>
+                <div class="ch" id="killer"><img src="mario/killer.jpeg"></div>
+                <div class="ch" id="gb"><img src="mario/gb.gif"></div>
+        </div>
+        마리오 위치: <span id="mario_gps"></span>
+        군바 위치: <span id="gb_gps"></span>
+    </body>
+</html>
