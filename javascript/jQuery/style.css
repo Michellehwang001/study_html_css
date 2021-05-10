@@ -45,7 +45,7 @@ button {
 }
 
 .css_transform_90 {
-    transform: skewX(90deg);
+    transform: rotate( +90deg );
 }
 
 .css_transform_-90 {
