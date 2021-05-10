@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <title>Web 포토샵</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <script>
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    
+                    reader.onload = function(e) {
+                    $('#img').attr('src', e.target.result);
+                    }
+                    
+                    reader.readAsDataURL(input.files[0]); // convert to base64 string
+                }
+            }
+            $(document).ready(function() {
+                $("#blur").click(function() {
+                    $("#img").removeClass();
+                    $("#img").addClass('css_blur');
+                });
+                $("#shadow").click(function() {
+                    $("#img").removeClass();
+                    $("#img").addClass('css_shadow');
+                });
+                $("#gray").click(function() {
+                    $("#img").removeClass();
+                    $("#img").addClass('css_gray');
+                });
+                $("#opacity").click(function() {
+                    $("#img").removeClass();
+                    $("#img").addClass('css_opacity');
+                });
+                $("#transform_left").click(function() {
+                    $("#img").removeClass();
+                    $("#img").addClass('css_transform_-90');
+                });
+                $("#transform_right").click(function() {
+                    $("#img").removeClass();
+                    $("#img").addClass('css_transform_90');
+                });
+                $("#reset").click(function() {
+                    $("#img").removeClass();
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div id="body"> 
+            <div id="content">
+            <div id="content_img">
+                <div><img id="img" src="http://placehold.it/180" width="150px"/></div>
+                <div><input type='file' onchange="readURL(this);" /></div>
+            </div>
+            <div id="content_action">
+                <button id="gray">회색으로</button>
+                <button id="blur">흐리게</button>
+                <button id="shadow">그림자</button>
+                <button id="opacity">50% 투명</button><br>
+                <button id="transform_left">좌로 90도 회전</button>
+                <button id="transform_right">우로 90도 회전</button>
+                <button id="reset">이미지 초기화</button>
+            </div>
+        </div>
+        </div>
+    </body>
+</html>
